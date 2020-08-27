@@ -1,20 +1,38 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
+			portfolioValue: 5000,
+			buyingPower: 5000,
+			stocks: [
 				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
+					name: "apple",
+					symbol: "AAPL",
+					price: 500,
+					shares: 0,
+					currentValue: 1000
 				}
 			]
 		},
 		actions: {
+			createUser: (username, email, password) => {
+				// console.log("user created with", username, email, password);
+				// fetch("", {
+				// 	method: "POST",
+				// 	headers: { "Content-Type": "application/json" },
+				// 	body: JSON.stringify({
+				// 		username: username,
+				//         email: email,
+				//         password: password
+				// 	})
+				// })
+				//     .then(data => data.json()
+				//     .then(response => ({ status: data.status, resMsg: response.msg })))
+				// 	.then(({ status, resMsg }) => {
+				// 		if (status === 400) alert(resMsg);
+				// 	})
+				// 	.catch(err => alert(err.message));
+			},
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
