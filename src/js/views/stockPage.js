@@ -10,7 +10,9 @@ export class StockPage extends React.Component {
 		super(props);
 		this.state = {
 			stocks: null,
-			show: false
+			show: false,
+			stockname: null,
+			stockprice: null
 		};
 	}
 
@@ -20,9 +22,11 @@ export class StockPage extends React.Component {
 			.then(results => this.setState({ stocks: results }));
 	}
 
-	showModal = () => {
+	showModal = (name, price) => {
 		this.setState({
-			show: true
+			show: true,
+			stockname: name,
+			stockprice: price
 		});
 	};
 
@@ -35,14 +39,17 @@ export class StockPage extends React.Component {
 	render() {
 		if (!this.state.stocks) return "Loading, please stand by...";
 		else {
-			const stockList = this.state.stocks.map((stock, index) => {
+			const { stocks, stockname, stockprice, show } = this.state;
+			console.log(stocks);
+
+			const stockList = stocks.map((stock, index) => {
 				return (
 					<tr key={index}>
 						<td>
 							<button
 								className="btn btn-success rounded my-1"
 								onClick={() => {
-									this.showModal();
+									this.showModal(stock.name, stock.price);
 								}}>
 								Buy
 							</button>
@@ -59,17 +66,12 @@ export class StockPage extends React.Component {
 				<div>
 					<Header />
 					<Navbar />
-					<BuyModal
-						show={this.state.show}
-						stock={stock.name}
-						price={stock.price}
-						hideModal={() => this.closeModal()}
-					/>
+					<BuyModal show={show} stock={stockname} price={stockprice} hideModal={() => this.closeModal()} />
 					<div className="text-center mt-5">
 						<table className="table table-striped">
 							<thead>
 								<tr>
-									<th scope="col">buy or sell</th>
+									<th scope="col">Action</th>
 									<th scope="col">Symbol</th>
 									<th scope="col">Name</th>
 									<th scope="col">Price</th>

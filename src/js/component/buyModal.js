@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 import { StockPage } from "../views/stockPage";
@@ -6,23 +6,31 @@ import { StockPage } from "../views/stockPage";
 export const BuyModal = props => {
 	const { actions, store } = useContext(Context);
 	const [state, setState] = useState({
-		username: "",
-		email: "",
-		password: ""
+		shares: 0,
+		stockname: props.stock,
+		stockprice: 0,
+		totalPurchase: 0
 	});
 	const { show } = props;
-	const handleSubmit = e => {
-		e.preventDefault();
-		if (state.username !== "" && state.email !== "" && state.password !== "") {
-			actions.createUser(state.username, state.email, state.password);
-			setState({
-				username: "",
-				email: "",
-				password: ""
-			});
-			props.hideModal();
-		}
-	};
+	useEffect(
+		() => {
+			console.log("state changed!");
+			setState({ ...state, totalPurchase: state.shares * props.price });
+		},
+		[state]
+	);
+	// const handleSubmit = e => {
+	// 	e.preventDefault();
+	// 	if (state.username !== "" && state.email !== "" && state.password !== "") {
+	// 		actions.createUser(state.username, state.email, state.password);
+	// 		setState({
+	// 			username: "",
+	// 			email: "",
+	// 			password: ""
+	// 		});
+	// 		props.hideModal();
+	// 	}
+	// };
 
 	return (
 		<div className={show ? "h-view" : "modal"} tabIndex="-1" role="dialog">
@@ -39,50 +47,32 @@ export const BuyModal = props => {
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form onSubmit={handleSubmit}>
+					<form
+					// onSubmit={handleSubmit}
+					>
 						<div className="modal-body">
 							<div className="form-row">
 								<div className="usernamesignup form-group ">
 									<label htmlFor="inputFirstName">Shares</label>
 									<input
 										onChange={event => {
-											setState({ ...state, username: event.target.value });
+											setState({ ...state, shares: event.target.value });
 										}}
-										value={state.username}
+										value={state.shares}
 										type="text"
 										className="input"
 										id="inputFirstName"
-										// placeholder="username"
+										placeholder="Number of shares"
 										required
 									/>
 								</div>
 								<div className="emailsignup form-group ">
 									<label htmlFor="inputEmail">Price</label>
-									<input
-										onChange={event => {
-											setState({ ...state, email: event.target.value });
-										}}
-										value={props.price}
-										type="text"
-										className="input"
-										id="inputEmail"
-										// placeholder="something@email.com"
-										required
-									/>
+									<h3>{props.price}</h3>
 								</div>
 								<div className="passwordsignup form-group ">
 									<label htmlFor="inputPassword4">Total purchase</label>
-									<input
-										onChange={event => {
-											setState({ ...state, password: event.target.value });
-										}}
-										value={state.password}
-										type="password"
-										className="input"
-										id="inputPassword4"
-										// placeholder="**********"
-										required
-									/>
+									<h3>{state.totalPurchase}</h3>
 								</div>
 							</div>
 						</div>
