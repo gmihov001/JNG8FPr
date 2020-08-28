@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
+import { StockPage } from "../views/stockPage";
 
-export const SignUpModal = props => {
+export const BuyModal = props => {
 	const { actions, store } = useContext(Context);
 	const [state, setState] = useState({
 		username: "",
@@ -28,7 +29,7 @@ export const SignUpModal = props => {
 			<div className="modal-dialog" role="document">
 				<div className="signupmodal modal-content">
 					<div className="signupmodalheader modal-header">
-						<h5 className="modal-title">Sign Up</h5>
+						<h5 className="modal-title">Buy {props.stock}</h5>
 						<button
 							type="button"
 							className="close"
@@ -42,7 +43,7 @@ export const SignUpModal = props => {
 						<div className="modal-body">
 							<div className="form-row">
 								<div className="usernamesignup form-group ">
-									<label htmlFor="inputFirstName">USER NAME</label>
+									<label htmlFor="inputFirstName">Shares</label>
 									<input
 										onChange={event => {
 											setState({ ...state, username: event.target.value });
@@ -56,12 +57,12 @@ export const SignUpModal = props => {
 									/>
 								</div>
 								<div className="emailsignup form-group ">
-									<label htmlFor="inputEmail">EMAIL</label>
+									<label htmlFor="inputEmail">Price</label>
 									<input
 										onChange={event => {
 											setState({ ...state, email: event.target.value });
 										}}
-										value={state.email}
+										value={props.price}
 										type="text"
 										className="input"
 										id="inputEmail"
@@ -70,7 +71,7 @@ export const SignUpModal = props => {
 									/>
 								</div>
 								<div className="passwordsignup form-group ">
-									<label htmlFor="inputPassword4">PASSWORD</label>
+									<label htmlFor="inputPassword4">Total purchase</label>
 									<input
 										onChange={event => {
 											setState({ ...state, password: event.target.value });
@@ -87,7 +88,7 @@ export const SignUpModal = props => {
 						</div>
 						<div className="signupmodalfooter modal-footer">
 							<button type="submit" className="createaccountbutton btn btn-secondary">
-								Create Account
+								Buy Shares
 							</button>
 							<button
 								type="button"
@@ -105,7 +106,9 @@ export const SignUpModal = props => {
 	);
 };
 
-SignUpModal.propTypes = {
+BuyModal.propTypes = {
 	show: PropTypes.bool,
-	hideModal: PropTypes.func
+	hideModal: PropTypes.func,
+	stock: PropTypes.string,
+	price: PropTypes.number
 };

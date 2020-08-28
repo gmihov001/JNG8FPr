@@ -1,3 +1,282 @@
-/* 
-    General Styles
-*/
+@import "~bootstrap/scss/bootstrap.scss";
+
+.header{
+    height:110px;
+    background-color:rgb(69, 74, 78);
+    display: flex;
+    justify-content: space-between;
+}
+
+.papertrade{
+    color:rgb(220, 220, 220);
+    font-size: 70px;
+    font-weight: bold;
+    margin-left:55px;
+}
+
+.papertrade:hover{
+    color:white;
+}
+
+.signup{
+    color:rgb(220, 220, 220);
+    font-size: 40px;
+    margin-right:40px;
+    margin-top:20px;
+    //font-weight:lighter;
+}
+
+.signup:hover{
+    color:white;
+}
+
+.editprofile{
+    color:rgb(220, 220, 220);
+    font-size: 40px;
+    margin-top:20px;
+    position:relative;
+    left:300px;
+    //font-weight:lighter;
+}
+
+.logout{
+    color:rgb(220, 220, 220);
+    font-size: 40px;
+    margin-top:20px;
+    position: relative;
+    right:40px;
+    }
+
+.logout:hover{
+    color:rgb(255, 255, 255);
+    }
+
+
+.login{
+    color:white;
+    height:665px;
+    width:50%;
+    padding:70px;
+    font-size:20px;
+    // margin-top:40px;
+    // background:rgb(45, 19, 63);
+    position: relative;
+    bottom: 00px;
+    left: 00px;
+}
+
+.about{
+    color:black;
+    height:665px;
+    width:50%;
+    padding:70px;
+    font-size:20px;
+    //margin-top:50px;
+    // background:rgb(28, 65, 45);
+    position: relative;
+    bottom: 00px;
+    left: 00px;
+}
+
+.middle{
+    display: flex;
+    justify-content: center;
+}
+
+.email{
+    color:black
+}
+
+.password{
+    color:black;
+    border-color:black;
+    margin-top:50px;
+}
+
+
+.loginbutton{
+    background:rgb(69, 74, 78);
+    color:rgb(240, 240, 240);
+}
+
+.loginbutton:hover{
+    color:white;
+}
+
+.nf{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 80px;
+    color:rgb(192, 0, 0);
+}
+.mystockstitle{
+    position: relative;
+    right:300px;
+}
+
+
+.vlhome {
+  border-left: 1px solid rgb(69, 74, 78);
+  height: 625px;
+  margin-top:24px;
+  border-radius:5px;
+}
+
+.input{
+    width:100%;
+    border-radius:0px;
+    border:none;
+    border-bottom:1px solid rgb(69, 74, 78);
+}
+
+.input:focus{
+    outline: none;
+}
+
+.vlprofile{
+  border-left: 1px solid rgb(189, 189, 189);
+  height: 80px;
+  margin-top:20px;
+  border-radius:5px;
+  position: relative;
+  left:144px;
+}
+
+.h-view{
+    position:absolute;
+    right:0;
+    left: 0;
+    margin-right:auto;
+    margin-left:auto;
+    z-index: 100;
+    width: 600px;
+}
+
+.signupmodalheader{
+    background:rgb(152, 157, 161);
+}
+
+.usernamesignup{
+
+}
+
+.emailsignup{
+
+}
+
+.passwordsignup{
+
+}
+
+.signupmodalfooter{
+    background:rgb(152, 157, 161);
+}
+
+.signupmodal{
+    width:257px;
+    height:380px;
+    position: relative;
+    left:140px;
+}
+
+.createaccountbutton{
+    background:rgb(69, 74, 78);
+}
+
+.cancelbutton{
+    background:rgb(69, 74, 78);
+}
+
+
+.navbar{
+    background-color:rgb(69, 74, 78);
+    height:30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tradestocks{
+    color:rgb(220, 220, 220);
+    font-size:20px;
+    margin-left:90px;
+    margin-right:40px;
+}
+
+.tradestocks:hover{
+    color:white;
+}
+
+.transactionhistory{
+    color:rgb(220, 220, 220);
+    font-size:20px;
+    margin-left:40px;
+    margin-right:40px;
+}
+
+.transactionhistory:hover{
+    color:white;
+}
+
+.leaderboard{
+    color:rgb(220, 220, 220);
+    font-size:20px;
+    margin-left:40px;
+    margin-right:40px;
+}
+
+.leaderboard:hover{
+    color:white;
+}
+
+.editprofilee{
+    color:rgb(220, 220, 220);
+    font-size:20px;
+    margin-left:40px;
+    margin-right:40px;
+}
+
+.editprofilee:hover{
+    color:white;
+}
+
+.userprofile{
+    color:rgb(220, 220, 220);
+    font-size:20px;
+    margin-left:40px;
+    margin-right:40px;
+}
+
+.userprofile:hover{
+    color:white;
+}
+
+.mystocks{
+    color:rgb(220, 220, 220);
+    font-size:20px;
+    margin-left:40px;
+    margin-right:40px;
+}
+
+.mystocks:hover{
+    color:white;
+}
+
+.profilenavbar{
+    height:125px;
+    background-color:rgb(69, 74, 78);
+    display: flex;
+    justify-content: space-between;
+}
+
+.editprofile{
+    color:rgb(240, 240, 240);
+    font-size: 40px;
+    margin-top:20px;
+    //font-weight:lighter;
+}
+
+.logout{
+    color:rgb(240, 240, 240);
+    font-size: 40px;
+    margin-top:20px;
+    }
